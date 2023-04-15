@@ -12,7 +12,7 @@ class SpaceAge:
         return round(self.on_earth() / 0.61519726, 2)
 
     def on_mars(self):
-            return round(self.on_earth() / 1.8808158, 2)
+        return round(self.on_earth() / 1.8808158, 2)
 
     def on_jupiter(self):
         return round(self.on_earth() / 11.862615, 2)

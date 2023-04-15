@@ -1,2 +1,2 @@
-# py-exercism
-Solutions to Python Exercism exercises
+# Exercism Solutions
+Solutions to Exercism exercises

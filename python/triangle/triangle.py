@@ -1,6 +1,7 @@
 """ Group of functions to classify three-member lists as different types of triangles. This would make a great set
 of class methods, but that probably wouldn't pass tests."""
 
+
 def equilateral(sides: list) -> bool:
     """
     Determines whether the triangle is equilateral. An equilateral triangle has three sides of equal length.
@@ -8,8 +9,7 @@ def equilateral(sides: list) -> bool:
     """
     if sum(sides) == 0:
         return False
-    check_side_length_uniqueness = set(sides)
-    return len(check_side_length_uniqueness) == 1
+    return len(set(sides)) == 1
 
 
 def isosceles(sides: list) -> bool:
@@ -18,13 +18,12 @@ def isosceles(sides: list) -> bool:
     :param sides:
     """
     if (
-        sides[0] + sides[1] < sides[2]
-        or sides[1] + sides[2] < sides[0]
-        or sides[0] + sides[2] < sides[1]
+            sides[0] + sides[1] < sides[2]
+            or sides[1] + sides[2] < sides[0]
+            or sides[0] + sides[2] < sides[1]
     ):
         return False
-    check_side_length_uniqueness = set(sides)
-    return len(check_side_length_uniqueness) <= 2
+    return len(set(sides)) <= 2
 
 
 def scalene(sides: list) -> bool:
@@ -33,10 +32,9 @@ def scalene(sides: list) -> bool:
     :param sides:
     """
     if (
-        sides[0] + sides[1] < sides[2]
-        or sides[1] + sides[2] < sides[0]
-        or sides[0] + sides[2] < sides[1]
+            sides[0] + sides[1] < sides[2]
+            or sides[1] + sides[2] < sides[0]
+            or sides[0] + sides[2] < sides[1]
     ):
         return False
-    check_side_length_uniqueness = set(sides)
-    return len(check_side_length_uniqueness) == 3
+    return len(set(sides)) == 3

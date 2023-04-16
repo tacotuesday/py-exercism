@@ -1,7 +1,7 @@
 """Functions to prevent a nuclear meltdown."""
 
 
-def is_criticality_balanced(temperature: int|float, neutrons_emitted: int|float) -> bool:
+def is_criticality_balanced(temperature: int | float, neutrons_emitted: int | float) -> bool:
     """Verify balanced criticality.
 
     :param temperature: int or float - temperature value in kelvin.
@@ -15,13 +15,13 @@ def is_criticality_balanced(temperature: int|float, neutrons_emitted: int|float)
     """
 
     return (
-        temperature < 800
-        or neutrons_emitted > 500
-        or temperature * neutrons_emitted < 500000
+            temperature < 800
+            and neutrons_emitted > 500
+            and temperature * neutrons_emitted < 500000
     )
 
 
-def reactor_efficiency(voltage: int|float, current: int|float, theoretical_max_power: int|float) -> str:
+def reactor_efficiency(voltage: int | float, current: int | float, theoretical_max_power: int | float) -> str:
     """Assess reactor efficiency zone.
 
     :param voltage: int or float - voltage value.
@@ -53,7 +53,7 @@ def reactor_efficiency(voltage: int|float, current: int|float, theoretical_max_p
         return 'black'
 
 
-def fail_safe(temperature: int|float, neutrons_produced_per_second: int|float, threshold: int|float) -> str:
+def fail_safe(temperature: int | float, neutrons_produced_per_second: int | float, threshold: int | float) -> str:
     """Assess and return status code for the reactor.
 
     :param temperature: int or float - value of the temperature in kelvin.
@@ -67,3 +67,9 @@ def fail_safe(temperature: int|float, neutrons_produced_per_second: int|float, t
     """
 
     reactor_status = (temperature * neutrons_produced_per_second) / threshold
+    if 0.0 < reactor_status <= 0.1:
+        return 'NORMAL'
+    elif 0.1 < reactor_status <= 0.9:
+        return 'LOW'
+    else:
+        return 'DANGER'

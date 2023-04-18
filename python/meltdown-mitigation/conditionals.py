@@ -67,9 +67,9 @@ def fail_safe(temperature: int | float, neutrons_produced_per_second: int | floa
     """
 
     reactor_status = (temperature * neutrons_produced_per_second) / threshold
-    if 0.0 < reactor_status <= 0.1:
-        return 'NORMAL'
-    elif 0.1 < reactor_status <= 0.9:
+    if reactor_status <= 0.9:
         return 'LOW'
+    elif reactor_status <= 1.1:
+        return 'NORMAL'
     else:
         return 'DANGER'

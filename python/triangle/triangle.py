@@ -15,7 +15,7 @@ def equilateral(sides: list) -> bool:
     Determines whether the triangle is equilateral. An equilateral triangle has three sides of equal length.
     :param sides:
     """
-    return bool(is_triangle(sides) and len(set(sides)) == 1)
+    return is_triangle(sides) and len(set(sides)) == 1
 
 
 def isosceles(sides: list) -> bool:
@@ -23,7 +23,7 @@ def isosceles(sides: list) -> bool:
     Determines whether the triangle is isosceles. An isosceles triangle has at least two sides the same length.
     :param sides:
     """
-    return bool(is_triangle(sides) and len(set(sides)) <= 2)
+    return is_triangle(sides) and len(set(sides)) <= 2
 
 
 def scalene(sides: list) -> bool:
@@ -31,4 +31,4 @@ def scalene(sides: list) -> bool:
     Determines whether the triangle is scalene. Scalene triangles have no sides of equal length.
     :param sides:
     """
-    return bool(is_triangle(sides) and len(set(sides)) == 3)
+    return is_triangle(sides) and len(set(sides)) == 3
